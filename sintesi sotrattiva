@@ -1,0 +1,24 @@
+//Crea un file di faust in cui esponi, in forma di commento, i principi della sintesi sottrattiva. Realizza un esempio attraverso un filtraggio passa banda.
+//Sintesi Sottrattiva//
+//La sintesi sottrattiva è la più utilizzata dai sintetizzatori (hardware e software) . È spesso direttamente collegata al concetto di sintesi analogica perchè la maggior parte dei synth analogici utilizzano questo metodo di generazione sonora.
+//Lo schema base della sintesi sottrattiva è il seguente: Oscillatore -> Filtro -> Amplificatore.
+//In sostanza si parte da una sorgente sonora (generalmente ricca di armoniche), si filtra il contenuto e si controlla l’ampiezza del segnale (il volume) nel corso del tempo.
+//Oscillatori
+//L’oscillatore è la principale sorgente sonora di un sintetizzatore. Esso genera continuamente forme d’onda. La velocità con la quale l’oscillatore genera ogni ciclo di una forma d’onda è ciò che noi percepiamo come pitch.
+//Uno spettrogramma è la rappresentazione grafica dell'intensità di un suono in funzione del tempo e della frequenza o, in altre parole, è la rappresentazione grafica della funzione reale i delle variabili reali t ed f : sull'asse delle ascisse è riportato il tempo in scala lineare ; sull'asse delle ordinate è riportata la frequenza in scala lineare o logaritmica; a ciascun punto di data ascissa e data ordinata è assegnata una tonalità di grigio, o un colore, rappresentante l'intensità del suono in un dato istante di tempo e a una data frequenza; la relazione fra l'intensità del suono e la scala di grigi o di colori può essere lineare o logaritmica.
+//Lo spettro sonoro è un grafico che si utilizza nell'analisi di un rumore o di un suono: vi si riportano i livelli sonori in funzione della frequenza.
+//Filtro passa basso (lowpass) : un filtro passa basso è un sistema che permette il passaggio di frequenze al di sotto di una data soglia, detta frequenza di taglio, bloccando le alte frequenze. 
+//Filtro passa alto (highpass) : un filtro passa-alto è composto da un circuito elettrico che permette solo il passaggio di frequenze al di sopra di un dato valore detto "frequenza di taglio".
+
+
+
+
+
+
+
+
+
+import ("stdfaust.lib") ; 
+fcut = vslider("cut-off [style:knob]" , 1000, 20, 20000, 1) ;
+order = 2 ; 
+process = fi.lowpass (order,fcut) : fi.highpass (order,fcut) ; 
